@@ -1,1 +1,5 @@
 LINEUP MMC ODOO 16
+
+
+
+ python3 odoo-16.0/odoo-bin -c config/odoo.conf -i "contract,lineupmmc_odoo_api,lineupmmc_sales,main_lineup_mmc,mrp_operation_subcontracting,odoo_website_helpdesk,odoo_website_helpdesk_dashboard,system_automation"

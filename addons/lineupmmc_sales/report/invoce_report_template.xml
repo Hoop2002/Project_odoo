@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="invoce_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                   <div class="page">
+                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+                        <body>
+                        <div class="container mt-5">
+                            <div class="row my-5">
+                                <div class="col-md-6">
+                                    <h1 class="mb-0"><strong>LINEUP MMC</strong></h1>
+                                    <img src="lineupmmc_sales/static/description/lineupmmc_logo_in_docs.png" style="height: 100; width: 100;"/>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <h2 class="mt-4 mb-0 text-secondary"><strong>HESAB-FAKTURA: <span t-field="o.id"/></strong></h2>
+                                </div>
+                            </div>
+                            <div class="row pt-5">
+                                <div class="col-md-4">
+                                    <p class=""><strong>Hesabı təqdim edən: “LINEUP” MMC</strong></p>
+                                    <p>VÖEN : 1902777561</p>
+                                    <p class=""><strong>Hesabı alan: “Turanbank” ASC</strong></p>
+                                    <p>VÖEN : 1300016391</p>
+                                </div>
+                                <div class="col-md-4 offset-md-4 text-end">
+                                    <p class="mb-0"><strong style="word-spacing: 10px;">Tarix       <span t-field="o.invoice_date"/></strong></p>
+                                    <p>123</p>
+                                    <p>Müqavilənin tarixi: 23.02.2022</p>
+                                    <p>444</p>
+                             </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mt-5 px-5">
+                                    <table class="table table-bordered border-dark">
+                                        <thead>
+                                             <tr class="bg-light bg-gradient text-center">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">MALLAR (İŞLƏR, XİDMƏTLƏR)</th>
+                                                    <th scope="col">ÖLÇÜ VAHİDİ</th>
+                                                    <th scope="col">MİQDARI</th>
+                                                    <th scope="col">QIYMƏTİ</th>
+                                                    <th scope="col">CƏMİ</th>
+                                             </tr>
+                                 </thead>
+                            <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>UCM6300</td>
+                            <td class="text-center">ədəd</td>
+                            <td class="text-center">2</td>
+                            <td class="text-center">2</td>
+                            <td class="text-end">2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>GXP1782</td>
+                            <td class="text-center">ədəd</td>
+                            <td class="text-center">2</td>
+                            <td class="text-center">2</td>
+                            <td class="text-end">2</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="text-end">Cəmi:</td>
+                            <td class="text-end">13,00</td>
+                        </tr>
+                                         </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                                <div class="row pb-5">
+                                    <div class="col-md-12 mt-4">
+                                        <h5 class="mb-5 ps-5 text-secondary">*Ödəniləcək məbləğ: altı min yüz doqsan altı, 00 qəpik</h5>
+                                    </div>
+                                </div>
+                                <div class="row pb-5">
+                                    <div class="col-md-12">
+                                        <p>Bank : Kapital Bank ASC Yasamal filialı</p>
+                                        <p>VOEN: 9900003611</p>
+                                        <p>Kodu: 200037</p>
+                                        <p>SWIFT: AIIBAZ2XXXX</p>
+                                        <p>M./h : AZ37NABZ01350100000000001944</p>
+                                        <p>H./h : AZ60AIIB400600C9449928113103</p>
+                                </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-md-4">
+                                        <p class="mb-0"><strong>DİREKTOR</strong></p>
+                                    </div>
+                                    <div class="col-md-4 offset-md-4">
+                                        <p class="mb-0 text-end"><strong>Həsənova Cəmilə A</strong></p>
+                                    </div>
+                                 </div>
+                            </div>
+                        </body> 
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

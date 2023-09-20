@@ -20,14 +20,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    "depends": ["base", "contract"],
+    "depends": ["base", "contract", "account"],
 
     # always loaded
     'data': [
         'data/my_company.xml',
         'views/views.xml',
         'views/templates.xml',
-        'report/lineupmmc_invoce_report.xml'
+        'report/invoce_report_template.xml',
+        'report/invoce_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
