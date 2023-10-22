@@ -26,11 +26,11 @@
                                     <p>VÖEN : 1300016391</p>
                                 </div>
                                 <div class="col-md-4 offset-md-4 text-end">
-                                    <p class="mb-0"><strong style="word-spacing: 10px;">Tarix       <span t-field="o.invoice_date"/></strong></p>
-                                    <p>123</p>
-                                    <p>Müqavilənin tarixi: 23.02.2022</p>
-                                    <p>444</p>
-                             </div>
+                                    <p class="mb-0"><strong style="word-spacing: 10px;">Tarix       <span t-esc="o.get_date()"/></strong></p>
+                                    <p class="mb-0">Müqavilə: <span t-esc="o.name"/></p>
+                                    <p class="mb-0">Müqavilənin tarixi:  <span t-esc="o.create_date.strftime('%d.%m.%Y')"/></p>
+                                    <p class="mb-0">Valyuta AZN</p>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 mt-5 px-5">
@@ -44,35 +44,45 @@
                                                     <th scope="col">QIYMƏTİ</th>
                                                     <th scope="col">CƏMİ</th>
                                              </tr>
-                                 </thead>
-                            <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>UCM6300</td>
-                            <td class="text-center">ədəd</td>
-                            <td class="text-center">2</td>
-                            <td class="text-center">2</td>
-                            <td class="text-end">2</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>GXP1782</td>
-                            <td class="text-center">ədəd</td>
-                            <td class="text-center">2</td>
-                            <td class="text-center">2</td>
-                            <td class="text-end">2</td>
-                        </tr>
-                        <tr>
-                            <td colspan="5" class="text-end">Cəmi:</td>
-                            <td class="text-end">13,00</td>
-                        </tr>
-                                         </tbody>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="_i" t-value="1"/>
+                                            <t t-set="total_price" t-value="0"/>
+                                            <t t-foreach="o.line_ids" t-as="item">
+                                                <tr t-if="item.product_id">
+                                                    <th scope="row">
+                                                        <span t-esc="_i"/>
+                                                    </th>
+                                                    <td>
+                                                        <span t-esc="item.product_id.name"/>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span t-esc="item.product_uom_id.name"/>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span t-esc="item.quantity"/>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span t-esc="item.price_unit"/>
+                                                    </td>
+                                                    <td class="text-end">
+                                                        <span t-esc="item.price_subtotal"/>
+                                                        <t t-set="total_price" t-value="total_price + item.price_subtotal"/>
+                                                    </td>
+                                                    <t t-set="_i" t-value="_i+1"/>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td colspan="5" class="text-end">Cəmi:</td>
+                                                <td class="text-end"><span t-esc="total_price"/></td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                                 <div class="row pb-5">
                                     <div class="col-md-12 mt-4">
-                                        <h5 class="mb-5 ps-5 text-secondary">*Ödəniləcək məbləğ: altı min yüz doqsan altı, 00 qəpik</h5>
+                                        <h5 class="mb-5 ps-5 text-secondary">*Ödəniləcək məbləğ: <span t-esc="o.get_count_in_words(total_price)"/></h5>
                                     </div>
                                 </div>
                                 <div class="row pb-5">

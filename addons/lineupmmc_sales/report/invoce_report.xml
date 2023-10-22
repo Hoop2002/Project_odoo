@@ -23,6 +23,6 @@
         name="lineupmmc_sales.invoce_report"
         report_type="qweb-pdf"
         paperformat="paperformat_gym_report"
-        />
+     />
 
 </odoo>
